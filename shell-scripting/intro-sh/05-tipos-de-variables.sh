@@ -19,4 +19,8 @@ export var=valor # Crea la variable, le asigna "valor" y la exporta a la vez
 
 # Con la orden unset se pueden restaurar o eliminar variables o funciones. Por
 # ejemplo, la siguiente instrucción elimina el valor de la variable mils:
-unset mils
+
+# Nota: Ejecutar el script 06 para ver el funcionamiento de export, antes de
+# correr unset
+
+#unset mils
