@@ -21,35 +21,39 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int var = 22;
+int var = 222;
 
-int main (void){
+int main(void)
+{
+	printf("\n===> Soy el proceso padre iniciado - Mi PID es %d <===\n\n", getpid());
 
-	pid_t pidC; // The pid_t data type is a signed integer type which is capable
-				// of representing a process ID
+	pid_t pidC; 	// pid_t es un tipo de dato entero capaz de representar un process ID
+	pidC = fork(); 	// se genera un hijo y retorna el pid de este
 
-	printf(" ** soy el padre - proc.PID = %d ** \n", getpid());
+	printf("-> Soy el proceso %d. Mi hijo es %d\n", getpid(), pidC);
+	
 
-	pidC = fork(); // se genera un hijo y retorna el pid de este
-
-	printf("proc.PID = %d , pidC = %d ejecutandose \n", getpid(), pidC);
-
-	if(pidC > 0){ // padre
-		var = 44;
+	if (pidC > 0)
+	{ // padre
+		var = 444;
 	}
-	else if(pidC == 0){ // hijo
-		var = 33;
+	else if (pidC == 0)
+	{ // hijo
+		var = 333;
 	}
-	else{
+	else
+	{
 		/* error */
 	}
 
 	// este while se estara ejecutando simultaneamente en los dos procesos
-	while(1){
+	while (1)
+	{
 		sleep(3);
-		printf("yo soy el proceso %d. mi valor de var es %d\n", getpid(), var);
-		
-		if(pidC > 0){
+		printf("Soy el proceso %d. El valor de mi variable var es %d\n", getpid(), var);
+
+		if (pidC > 0)
+		{
 			printf("----------------------------------------------\n");
 		}
 	}
