@@ -1,6 +1,6 @@
 /*
-	** fork() - procesos padre, hijo, huerfano y zombie **
-
+	EXPLICACION DE LA FUNCION FORK
+	
 	pid_t fork(void)
 		> crea un nuevo proceso (hijo)
 		> el proceso hijo es un duplicado del "padre"
