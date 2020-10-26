@@ -1,6 +1,6 @@
 /*
 	EXPLICACION DE LA FUNCION FORK
-	
+
 	pid_t fork(void)
 		> crea un nuevo proceso (hijo)
 		> el proceso hijo es un duplicado del "padre"
@@ -27,18 +27,18 @@ int main(void)
 {
 	printf("\n===> Soy el proceso padre iniciado - Mi PID es %d <===\n\n", getpid());
 
-	pid_t pidC; 	// pid_t es un tipo de dato entero capaz de representar un process ID
-	pidC = fork(); 	// se genera un hijo y retorna el pid de este
+	pid_t pid; // pid_t es un tipo de dato entero capaz de representar un process ID
 
-	printf("-> Soy el proceso %d. Mi hijo es %d\n", getpid(), pidC);
-	
+	pid = fork(); // Se genera un hijo y retorna el pid de este
 
-	if (pidC > 0)
-	{ // padre
+	printf("-> Soy el proceso %d. Mi hijo es %d\n", getpid(), pid);
+
+	if (pid > 0) // Proceso padre
+	{
 		var = 444;
 	}
-	else if (pidC == 0)
-	{ // hijo
+	else if (pid == 0) // Proceso hijo
+	{
 		var = 333;
 	}
 	else
@@ -46,13 +46,13 @@ int main(void)
 		/* error */
 	}
 
-	// este while se estara ejecutando simultaneamente en los dos procesos
+	// Este while se estara ejecutando simultaneamente en los dos procesos
 	while (1)
 	{
-		sleep(3);
+		sleep(2);
 		printf("Soy el proceso %d. El valor de mi variable var es %d\n", getpid(), var);
 
-		if (pidC > 0)
+		if (pid > 0)
 		{
 			printf("----------------------------------------------\n");
 		}

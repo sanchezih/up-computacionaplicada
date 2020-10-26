@@ -9,20 +9,22 @@ int main(void)
 	printf("===>- EJEMPLO DE FORK -<===\n");
 
 	printf("Inicio del proceso padre (PID=%d - PPID=%d)\n", getpid(), getppid());
-	pid_t pid = fork();
 
-	if (pid == 0)
+	pid_t pid = fork(); // Creo un proceo hijo. Le retorna al padre el PID del hijo
+
+	if (pid > 0) // Proceso padre
 	{
-		/* Proceso hijo */
-		printf("Inicio proceso hijo (PID=%d - PPID=%d)\n",
-			   getpid(), getppid());
+		printf("Continuación del padre... (PID=%d - PPID=%d)\n", getpid(), getppid());
+		sleep(1);
+	}
+	else if (pid == 0) // Proceso hijo
+	{
+		printf("Inicio proceso hijo (PID=%d - PPID=%d)\n", getpid(), getppid());
 		sleep(1);
 	}
 	else
 	{
-		/* Proceso padre */
-		printf("Continuación del padre... (PID=%d - PPID=%d)\n", getpid(), getppid());
-		sleep(1);
+		/* error */
 	}
 
 	printf("Fin del proceso %d\n", getpid());

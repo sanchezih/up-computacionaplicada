@@ -8,21 +8,26 @@
 
 int main()
 {
-    pid_t pid = fork(); // Creo un proceo hijo
+    printf("===>- EJEMPLO DE ORPHAN -<===\n");
 
-    if (pid > 0)
+    pid_t pid = fork(); // Creo un proceo hijo. Le retorna al padre el PID del hijo
+
+    if (pid > 0) // Proceso padre
     {
         sleep(30);
         printf("Soy el proceso padre (PID=%d)\n", getpid());
     }
 
-    // Si pid es 0, estoy hablando del hijo. Si es negativo es porque fork() se ejecuto con error
-    else if (pid == 0)
+    else if (pid == 0) // Proceso hijo
     {
         printf("Soy el proceso hijo (PID=%d)\n", getpid());
 
         sleep(60); // Al tener un sleep mayor, el padre muere primero y el hijo queda huerfano
         printf("\nSoy el proceso hijo, ejecutando despues del sleep. Mi padre ya murio. Quede huerfano (PID=%d PPID=%d)\n", getpid(), getppid());
+    }
+    else
+    {
+        /* error */
     }
 
     printf("Fin del proceso %d\n", getpid());
