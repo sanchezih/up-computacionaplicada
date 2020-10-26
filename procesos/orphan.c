@@ -1,32 +1,30 @@
-// A C program to demonstrate Orphan Process.  
-// Parent process finishes execution while the 
-// child process is running. The child process 
-// becomes orphan.
+// A C program to demonstrate Orphan Process.
+// Parent process finishes execution while the child process is running.
+// The child process becomes orphan.
 
-#include <stdio.h> 
+#include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
 
 int main()
-{ 
-    // Create a child process
-    pid_t pid = fork();
-  
-    if (pid > 0)
-    printf ("Padre. PID=%d\n", getpid ());
+{
+    pid_t pid = fork(); // Creo un proceo hijo
 
-    // Note that pid is 0 in child process
-    // and negative if fork() fails 
+    if (pid > 0)
+    {
+        sleep(30);
+        printf("Soy el proceso padre (PID=%d)\n", getpid());
+    }
+
+    // Si pid es 0, estoy hablando del hijo. Si es negativo es porque fork() se ejecuto con error
     else if (pid == 0)
     {
-        printf ("Inicio proceso hijo. PID=%d, PPID=%d\n",
-    getpid (), getppid ());
+        printf("Soy el proceso hijo (PID=%d)\n", getpid());
 
-        sleep(30);
-printf ("El proceso queda huérfano. PID=%d PPID=%d\n",
-    getpid (), getppid ());
-        }
+        sleep(60); // Al tener un sleep mayor, el padre muere primero y el hijo queda huerfano
+        printf("\nSoy el proceso hijo, ejecutando despues del sleep. Mi padre ya murio. Quede huerfano (PID=%d PPID=%d)\n", getpid(), getppid());
+    }
 
-    printf ("Fin del proceso %d\n", getpid ());
-    return 0; 
+    printf("Fin del proceso %d\n", getpid());
+    return 0;
 }
