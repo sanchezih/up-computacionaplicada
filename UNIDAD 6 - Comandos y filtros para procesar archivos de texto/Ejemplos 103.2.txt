@@ -1,0 +1,36 @@
+Listing 1. Piping output from echo to input of sort
+echo -e "apple\npear\nbanana"|sort
+
+Listing 2. Redirecting output from a command to a file
+echo -e "1 apple\n2 pear\n3 banana" > text1
+
+Listing 3. Displaying file contents with cat
+cat text1
+1 apple
+2 pear
+3 banana
+
+Listing 4. Creating a text file with cat
+cat >text2
+9	plum
+3	banana
+10	apple
+
+Listing 5. Concatenating two files with cat
+cat text*
+
+Listing 6. Dumping files with od
+od text2
+od ‑A d ‑t c text2
+od ‑A n ‑t a text2
+
+Listing 7. Splitting and recombining with split and cat
+split ‑l 2 text1
+split ‑b 17 text2 y
+cat yaa
+cat yab
+cat y x
+
+Listing 8. Using wc with text files
+ls ‑l text
+wc text
