@@ -1,0 +1,30 @@
+----------------------------------------------------------------------------
+Proceso /home/caadmin/backup-data1.sh iniciado 2022-08-20_17-58-01Z
+----------------------------------------------------------------------------
+
+sending incremental file list
+2022/08/20 14:58:01 media/data1 0
+2022/08/20 14:58:01 media/data1/dnsmasq.conf.original 26.78K
+2022/08/20 14:58:01 media/data1/manual-empresa.txt 1.19K
+2022/08/20 14:58:01 media/data1/catalog 0
+2022/08/20 14:58:01 media/data1/catalog/database 112.05K
+2022/08/20 14:58:01 media/data1/coredump 0
+
+Number of files: 182 (reg: 168, dir: 14)
+Number of created files: 5 (reg: 3, dir: 2)
+Number of deleted files: 0
+Number of regular files transferred: 3
+Total file size: 763.72M bytes
+Total transferred file size: 143.24K bytes
+Literal data: 143.24K bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 151.20K
+Total bytes received: 111
+
+sent 151.20K bytes  received 111 bytes  302.62K bytes/sec
+total size is 763.72M  speedup is 5,047.40
+2022-08-20_17-58-01Z Backup completado OK
+2022-08-20_17-58-01Z Proceso finalizado

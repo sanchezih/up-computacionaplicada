@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------
+Proceso /home/caadmin/backup-data1.sh iniciado 2022-08-20_14-18-01Z
+----------------------------------------------------------------------------
+
+sending incremental file list
+
+Number of files: 177 (reg: 165, dir: 12)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 763.58M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 7.61K
+Total bytes received: 35
+
+sent 7.61K bytes  received 35 bytes  15.28K bytes/sec
+total size is 763.58M  speedup is 99,944.79
+2022-08-20_14-18-01Z Backup completado OK
+2022-08-20_14-18-01Z Proceso finalizado
